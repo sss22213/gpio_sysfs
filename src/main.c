@@ -8,9 +8,9 @@ int main()
 	while(1)
 	{
 		write_sysfs(new_device,1);
-		delay_s(1);
+		delay_ms(200);
 		write_sysfs(new_device,0);
-		delay_s(1);
+		delay_ms(200);
 	}
 	return 0;
 }

@@ -17,7 +17,7 @@ sudo make install
 
 - clear:
 ```
-make clear
+make clean
 ```
 
 - uninstall:

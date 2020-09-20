@@ -23,6 +23,7 @@ typedef struct sysfs_device
 }sysfs_device;
 
 void delay_s(int);
+void delay_ms(int);
 sysfs_device *new_sysfs(int);
 uint8_t set_direct_sysfs(sysfs_device*,char*);
 uint8_t read_sysfs(sysfs_device*);

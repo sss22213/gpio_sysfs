@@ -5,7 +5,7 @@ all: src/sysfs.c src/sysfs.h
 	${CC} -shared -o build/libsysfstest.so -fPIC src/sysfs.c
 	${CC} -o build/sysfstest src/sysfs.h src/main.c build/libsysfstest.so
 
-clear: 
+clean: build/sysfstest build/*.so
 	rm build/*.so
 	rm build/sysfstest
 
