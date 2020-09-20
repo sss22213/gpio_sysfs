@@ -1,5 +1,11 @@
 ## sysfs for linux, using shared library 
 
+- test environment:
+
+jetson nx + LT32.4.3
+
+raspberry pi 4b + ubuntu 20.04 server
+
 - build:
 ```
 make
