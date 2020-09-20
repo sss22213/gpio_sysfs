@@ -27,7 +27,7 @@ sudo make uninstall
 
 - using shared library(after install):
 ```
-gcc your_c_source_code -llibsysfstest -o your_ELF_name
+gcc your_c_source_code -lsysfstest -o your_ELF_name
 ```
 
 - bash call(after install)

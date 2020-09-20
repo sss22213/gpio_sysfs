@@ -1,3 +1,4 @@
+.PHONY : uninstall install test clean all
 CC=gcc
 loc=$(shell pwd)
 
@@ -16,9 +17,9 @@ test: build/sysfstest
 install: build/sysfstest build/libsysfstest.so
 	cp build/libsysfstest.so /usr/lib
 	cp src/sysfs.h /usr/include
-	cp build/sysfstest /bin
 
 uninstall:
 	rm /usr/lib/libsysfstest.so
 	rm /usr/include/sysfs.h
-	rm /bin/sysfstest
+
+
