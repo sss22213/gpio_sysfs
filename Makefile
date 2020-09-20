@@ -1,8 +1,7 @@
-.PHONY : uninstall install test clean all
 CC=gcc
 loc=$(shell pwd)
 
-all: src/sysfs.c src/sysfs.h
+all:
 	${CC} -shared -o build/libsysfstest.so -fPIC src/sysfs.c
 	${CC} -o build/sysfstest src/sysfs.h src/main.c build/libsysfstest.so
 

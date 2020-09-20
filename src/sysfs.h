@@ -15,7 +15,8 @@ typedef struct sysfs_device
     int fd; // file description
     int fd_rw;
     int gpio;
-    char gpio_s[3];
+    int gpio_count;
+    char *gpio_s;
     char set_direct_path[35];
     char read_write_device[35];
     char* export_gpio;

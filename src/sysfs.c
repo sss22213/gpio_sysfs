@@ -1,5 +1,6 @@
 #include "sysfs.h"
 
+
 void delay_us(int us)
 {
 	usleep(us);
@@ -21,7 +22,17 @@ sysfs_device* new_sysfs(int gpio)
     new_device->gpio = gpio;
 	snprintf(new_device->set_direct_path, 35,"/sys/class/gpio/gpio%d/direction", gpio);
 	snprintf(new_device->read_write_device, 35,"/sys/class/gpio/gpio%d/value", gpio);
-	snprintf(new_device->gpio_s, 3, "%d", gpio);
+	// gpio count of number
+	int gpio_tmp = gpio;
+	int n_count = 1;
+	while(gpio_tmp != 0)
+	{
+		gpio_tmp /= 10;
+		n_count++;
+	}
+	new_device->gpio_count = n_count;
+	new_device->gpio_s = (char*)calloc(sizeof(char),n_count);
+	snprintf(new_device->gpio_s, n_count, "%d", gpio);
 	new_device->export_gpio = (char*)calloc(sizeof(char),24);
 	memcpy(new_device->export_gpio,"/sys/class/gpio/export",24);
 	new_device->unexport_gpio = (char*)calloc(sizeof(char),25);
@@ -65,9 +76,8 @@ uint8_t write_sysfs(sysfs_device* device, int val)
 uint8_t export_sysfs(sysfs_device* device)
 {
 	ssize_t bytes_written;
-	char buffer[3];
 	device->fd = open(device->export_gpio, O_WRONLY);
-	int result = write(device->fd, device->gpio_s, 3);
+	int result = write(device->fd, device->gpio_s, device->gpio_count);
 	close(device->fd);
 	return result;
 }
