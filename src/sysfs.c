@@ -52,11 +52,11 @@ uint8_t set_direct_sysfs(sysfs_device* device, char* direct)
 
 uint8_t read_sysfs(sysfs_device* device)
 {
-	device->fd = open(device->set_direct_path, O_RDONLY);
+	device->fd = open(device->read_write_device, O_RDONLY);
 	char read_result[3];
 	memset(read_result,0,3);
 	if(device->fd < 0)return -1;
-	read(device->fd, read_result, 3);
+	read(device->fd, &read_result, 1);
 	close(device->fd);
 	return atoi(read_result);
 }
