@@ -2,9 +2,11 @@
 
 - test environment:
 
-jetson nx + LT32.4.3
+* jetson nx + LT32.4.3
 
-raspberry pi 4b + ubuntu 20.04 server
+* raspberry pi 4b + ubuntu 20.04 server
+
+* jetson nano
 
 - build:
 ```
